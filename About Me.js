@@ -1,6 +1,6 @@
 // Editable portfolio links and project content can be centralized here as the site grows.
 const portfolio = {
-	email: 'onuohaemmanuel892@gmail.com',
+	email: 'eonuoha.dev@gmail.com',
 	github: 'https://github.com/OEmmanuel02',
 	linkedin: 'https://www.linkedin.com/in/emmanuel-onuoha-2a320b37b/',
 	resume: 'Resume.pdf'
