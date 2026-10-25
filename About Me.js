@@ -3,7 +3,7 @@ const portfolio = {
 	email: 'onuohaemmanuel892@gmail.com',
 	github: 'https://github.com/OEmmanuel02',
 	linkedin: 'https://www.linkedin.com/in/emmanuel-onuoha-2a320b37b/',
-	resume: 'YOUR_RESUME_URL'
+	resume: 'Resume.pdf'
 };
 
 const header = document.querySelector('#site-header');
