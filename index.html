@@ -3,14 +3,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="description" content="Portfolio of Emmanuel Onuoha, a Full-Stack Web Developer building responsive, user-focused web applications.">
+	<meta name="description" content="Portfolio of Emmanuel Onuoha, a Full-Stack Software Developer building complete, user-focused software products across frontend, backend, APIs, and databases.">
 	<meta name="theme-color" content="#0b0d0d">
-	<meta property="og:title" content="Emmanuel Onuoha | Full-Stack Web Developer">
-	<meta property="og:description" content="I build responsive web applications from frontend to backend, turning ideas into useful digital products.">
+	<meta property="og:title" content="Emmanuel Onuoha | Full-Stack Software Developer">
+	<meta property="og:description" content="I build complete software products, connecting user-facing interfaces with backend services, APIs, and data.">
 	<meta property="og:type" content="website">
 	<meta name="twitter:card" content="summary">
 	<link rel="canonical" href="https://example.com/">
-	<title>Emmanuel Onuoha | Full-Stack Web Developer</title>
+	<link rel="icon" type="image/png" href="Images/favicon.png">
+	<title>Emmanuel Onuoha | Full-Stack Software Developer</title>
 	<link rel="stylesheet" href="About Me.css">
 </head>
 <body>
@@ -21,9 +22,7 @@
         <div class="wrap">
             <nav aria-label="Primary navigation">
                 <a class="brand" href="#top" aria-label="Emmanuel Onuoha home">
-                    <span class="brand-mark">
-                        EO
-                    </span>
+                    <img class="brand-mark" src="Images/favicon.png" alt="">
                     <span>
                         Emmanuel Onuoha
                     </span>
@@ -54,6 +53,9 @@
                         </span>
                     </a>
                 </div>
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to light theme" title="Switch to light theme">
+                    <span class="theme-icon" aria-hidden="true">☼</span>
+                </button>
             </nav>
         </div>
     </header>
@@ -61,7 +63,7 @@
         <section class="hero wrap" id="top">
             <div class="hero-copy reveal">
                 <p class="eyebrow">
-                    Full-Stack Web Developer
+                    Full-Stack Software Developer
                 </p>
                 <h1>
                     Building digital experiences that
@@ -70,7 +72,7 @@
                     </em>
                 </h1>
                 <p class="hero-copy">
-                    I build responsive web applications from frontend to backend, turning ideas into practical, scalable, and user-focused digital products.
+                    I build software end to end, connecting user-facing interfaces with backend services, APIs, and databases to turn ideas into practical, user-focused products.
                 </p>
                 <div class="hero-actions">
                     <a class="button" href="#projects">
@@ -261,9 +263,9 @@
                         <p class="about-copy">
                             I'm Emmanuel, a developer who enjoys building
                             <strong>
-                                complete web applications
+                                complete software products
                             </strong>
-                            and turning a rough idea into something people can actually use. I care about the whole picture: thoughtful interfaces, dependable APIs, and code that can grow with the product.
+                            and turning a rough idea into something people can actually use. I care about the whole system: thoughtful interfaces, dependable server-side logic, clear APIs, and data that can grow with the product.
                         </p>
                         <p class="philosophy">
                             Good software is clear to use, satisfying to interact with, and honest about the problem it solves.
@@ -420,14 +422,9 @@
                 <div class="project-list">
                     <article class="project">
                         <div class="project-preview">
-                            <div class="preview-window">
-                                <b>BRIDGELINE / TALENT PLATFORM</b>
-                                <div class="preview-block">
-                                </div>
-                                <div class="preview-block short">
-                                </div>
-                                <div class="preview-block">
-                                </div>
+                            <div class="project-brand-lockup">
+                                <img src="Images/bridgeline.svg" alt="Bridgeline logo">
+                                <span>BRIDGELINE / TALENT PLATFORM</span>
                             </div>
                         </div>
                         <div class="project-content">
@@ -469,15 +466,7 @@
                     </article>
                     <article class="project">
                         <div class="project-preview">
-                            <div class="preview-window">
-                                <b>EMMANUEL ONUOHA / PORTFOLIO</b>
-                                <div class="preview-block short">
-                                </div>
-                                <div class="preview-block">
-                                </div>
-                                <div class="preview-block short">
-                                </div>
-                            </div>
+                            <img class="project-image" src="Images/portfolio-preview.png" alt="Screenshot of the portfolio homepage">
                         </div>
                         <div class="project-content">
                             <span class="project-number">
@@ -593,7 +582,7 @@
                             Full-Stack Development
                         </h3>
                         <p>
-                            Complete web applications that connect thoughtful interfaces to reliable backend logic.
+                            End-to-end software that connects thoughtful user experiences with reliable backend logic and data.
                         </p>
                     </div>
                     <div class="service">
@@ -623,10 +612,10 @@
                             04
                         </span>
                         <h3>
-                            Website Development
+                            API & Integration
                         </h3>
                         <p>
-                            Fast, clear websites for individuals and businesses that need a strong digital home.
+                            Designing APIs and connecting application services so different parts of a product work together.
                         </p>
                     </div>
                     <div class="service">
@@ -634,10 +623,10 @@
                             05
                         </span>
                         <h3>
-                            Website Improvement
+                            Database Design
                         </h3>
                         <p>
-                            Practical improvements to performance, responsiveness, accessibility, and experience.
+                            Structuring and integrating relational and document databases to support application needs.
                         </p>
                     </div>
                 </div>
@@ -739,7 +728,7 @@
                             </a>
                         </div>
                     </div>
-                    <form class="contact-form" id="contact-form" novalidate>
+                    <form class="contact-form" id="contact-form" action="https://formspree.io/f/moeepqpr" method="POST" novalidate>
                         <div class="field">
                             <label for="name">
                                 Name
@@ -785,7 +774,7 @@
                     Emmanuel Onuoha
                 </span>
                 <br>
-                Full-Stack Web Developer
+                Full-Stack Software Developer
             </div>
             <div class="footer-links">
                 <a href="#about">

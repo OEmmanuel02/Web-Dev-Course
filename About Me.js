@@ -6,6 +6,34 @@ const portfolio = {
 	resume: 'Resume.pdf'
 };
 
+const themeToggle = document.querySelector('#theme-toggle');
+const themeColor = document.querySelector('meta[name="theme-color"]');
+const applyTheme = (theme) => {
+	const light = theme === 'light';
+	document.documentElement.dataset.theme = theme;
+	themeToggle.querySelector('.theme-icon').textContent = light ? '☾' : '☼';
+	themeToggle.setAttribute('aria-label', `Switch to ${light ? 'dark' : 'light'} theme`);
+	themeToggle.title = `Switch to ${light ? 'dark' : 'light'} theme`;
+	themeColor.setAttribute('content', light ? '#f5f8f6' : '#0b0d0d');
+};
+
+try {
+	const savedTheme = localStorage.getItem('portfolio-theme');
+	if (savedTheme === 'light' || savedTheme === 'dark') applyTheme(savedTheme);
+} catch (error) {
+	console.warn('Unable to read the saved theme preference.', error);
+}
+
+themeToggle.addEventListener('click', () => {
+	const nextTheme = document.documentElement.dataset.theme === 'light' ? 'dark' : 'light';
+	applyTheme(nextTheme);
+	try {
+		localStorage.setItem('portfolio-theme', nextTheme);
+	} catch (error) {
+		console.warn('Unable to save the theme preference.', error);
+	}
+});
+
 const header = document.querySelector('#site-header');
 const menuToggle = document.querySelector('.menu-toggle');
 const navLinks = document.querySelector('#nav-links');
@@ -55,10 +83,13 @@ const sectionObserver = new IntersectionObserver(
 sections.forEach((section) => sectionObserver.observe(section));
 
 const form = document.querySelector('#contact-form');
-form.addEventListener('submit', (event) => {
+const formStatus = document.querySelector('#form-status');
+const submitButton = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', async (event) => {
 	event.preventDefault();
 	document.querySelectorAll('.error').forEach((error) => { error.textContent = ''; });
-	document.querySelector('#form-status').textContent = '';
+	formStatus.textContent = '';
 	const fields = [
 		['name', 'Please enter your name.'],
 		['email', 'Please enter a valid email.'],
@@ -75,7 +106,27 @@ form.addEventListener('submit', (event) => {
 	});
 
 	if (valid) {
-		document.querySelector('#form-status').textContent = 'Thanks. The form is ready to connect to an email service or API.';
-		form.reset();
+		submitButton.disabled = true;
+		formStatus.textContent = 'Sending your message…';
+
+		try {
+			const response = await fetch(form.action, {
+				method: form.method,
+				body: new FormData(form),
+				headers: { Accept: 'application/json' }
+			});
+
+			if (!response.ok) {
+				throw new Error(`Formspree returned ${response.status}`);
+			}
+
+			formStatus.textContent = 'Thanks for your message. I’ll be in touch soon.';
+			form.reset();
+		} catch (error) {
+			console.error('Unable to send contact form submission.', error);
+			formStatus.textContent = 'Sorry, your message could not be sent. Please try again or email eonuoha.dev@gmail.com.';
+		} finally {
+			submitButton.disabled = false;
+		}
 	}
 });
