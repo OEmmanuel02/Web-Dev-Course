@@ -90,6 +90,7 @@ form.addEventListener('submit', async (event) => {
 	event.preventDefault();
 	document.querySelectorAll('.error').forEach((error) => { error.textContent = ''; });
 	formStatus.textContent = '';
+	formStatus.dataset.state = '';
 	const fields = [
 		['name', 'Please enter your name.'],
 		['email', 'Please enter a valid email.'],
@@ -108,6 +109,7 @@ form.addEventListener('submit', async (event) => {
 	if (valid) {
 		submitButton.disabled = true;
 		formStatus.textContent = 'Sending your message…';
+		formStatus.dataset.state = 'sending';
 
 		try {
 			const response = await fetch(form.action, {
@@ -121,10 +123,12 @@ form.addEventListener('submit', async (event) => {
 			}
 
 			formStatus.textContent = 'Thanks for your message. I’ll be in touch soon.';
+			formStatus.dataset.state = 'success';
 			form.reset();
 		} catch (error) {
 			console.error('Unable to send contact form submission.', error);
 			formStatus.textContent = 'Sorry, your message could not be sent. Please try again or email eonuoha.dev@gmail.com.';
+			formStatus.dataset.state = 'error';
 		} finally {
 			submitButton.disabled = false;
 		}
